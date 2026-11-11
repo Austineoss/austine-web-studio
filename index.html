@@ -154,18 +154,123 @@ footer {
   nav.show { display: flex; flex-direction: column; }
   nav a { margin: 10px 0; }
 }
+
+/* New Austine Web Studio sections and interactive features */
+.theme-toggle {
+  margin-left: auto;
+  margin-right: 14px;
+  border: 1px solid #365071;
+  border-radius: 999px;
+  background: #172943;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.pricing-grid, .feature-grid, .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.price-card, .feature-card, .testimonial-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 12px;
+  padding: 25px;
+}
+.price-card.featured { border: 2px solid #3b82f6; transform: translateY(-4px); }
+.price-card h3, .feature-card h3 { margin-bottom: 10px; }
+.price { font-size: 30px; font-weight: bold; color: #60a5fa; margin: 12px 0; }
+.price small { font-size: 13px; color: #aab8ca; font-weight: normal; }
+.price-card p, .price-card li, .feature-card p, .testimonial-card p {
+  color: #aab8ca;
+  font-size: 14px;
+}
+.price-card ul { padding-left: 20px; margin: 16px 0 22px; }
+.price-card li { margin: 7px 0; }
+.section-note { max-width: 760px; margin: 0 auto 25px; color: #aab8ca; text-align: center; font-size: 14px; }
+.empty-testimonials {
+  max-width: 700px;
+  margin: auto;
+  padding: 28px;
+  border: 1px dashed #49617f;
+  border-radius: 12px;
+  text-align: center;
+  color: #cbd5e1;
+  background: #111c30;
+}
+.faq-list { max-width: 850px; margin: auto; }
+.faq-list details {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 10px;
+  padding: 17px 20px;
+  margin-bottom: 12px;
+}
+.faq-list summary { cursor: pointer; font-weight: bold; }
+.faq-list details p { color: #aab8ca; margin-top: 12px; }
+.booking-panel {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 14px;
+}
+.booking-panel p { color: #cbd5e1; margin: 12px 0 22px; }
+.chat-quick-actions { display: flex; flex-wrap: wrap; gap: 7px; padding: 8px 10px; background: #f3f6fa; }
+.chat-quick-actions button {
+  border: 1px solid #b7c8df;
+  background: white;
+  color: #17345a;
+  border-radius: 18px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#chat-header { display: flex; justify-content: space-between; align-items: center; }
+#chat-close { cursor: pointer; border: 0; background: transparent; color: white; font-size: 20px; }
+body.light-mode { background: #f5f7fb; color: #172033; }
+body.light-mode header, body.light-mode .about { background: #e7edf6; }
+body.light-mode nav a { color: #172033; }
+body.light-mode .hero { background: linear-gradient(120deg,#dceaff,#f5f7fb); }
+body.light-mode .hero p, body.light-mode .about p, body.light-mode .contact p { color: #34445c; }
+body.light-mode .service, body.light-mode .project, body.light-mode .price-card,
+body.light-mode .feature-card, body.light-mode .testimonial-card,
+body.light-mode .faq-list details, body.light-mode .booking-panel,
+body.light-mode .empty-testimonials { background: white; color: #172033; border-color: #cbd5e1; }
+body.light-mode .service p, body.light-mode .project p, body.light-mode .price-card p,
+body.light-mode .price-card li, body.light-mode .feature-card p,
+body.light-mode .testimonial-card p, body.light-mode .faq-list details p,
+body.light-mode .booking-panel p, body.light-mode .section-note { color: #526176; }
+body.light-mode footer { background: #e7edf6; color: #526176; }
+body.light-mode .contact { background: linear-gradient(120deg,#dceaff,#f5f7fb); }
+body.light-mode .theme-toggle { background: white; color: #172033; border-color: #cbd5e1; }
+@media(max-width:650px) {
+  header { flex-wrap: wrap; }
+  .theme-toggle { margin-left: auto; }
+  nav { z-index: 20; }
+  .price-card.featured { transform: none; }
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">AUSTINE <span>WEB STUDIO</span></div>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">☀️</button>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
   <nav id="nav">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#booking">Book a Meeting</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -243,6 +348,145 @@ View Restaurant Demo
       <p>A professional online presence for companies.</p>
     </div>
   </div>
+</section>
+
+
+<section id="pricing">
+  <div class="section-title">
+    <h2>Website Packages</h2>
+    <p>Clear starting prices for common website projects.</p>
+  </div>
+  <p class="section-note">Prices are starting estimates in USD. Your final quote will depend on the pages, content, features and integrations your project needs. Hosting, domain names and third-party fees are not included unless agreed.</p>
+  <div class="pricing-grid">
+    <article class="price-card">
+      <h3>Starter</h3>
+      <div class="price">From $75</div>
+      <p>For individuals and small businesses that need a simple online presence.</p>
+      <ul>
+        <li>One-page website</li>
+        <li>Mobile-friendly layout</li>
+        <li>Contact and WhatsApp links</li>
+        <li>Basic page title and description</li>
+        <li>One revision round</li>
+      </ul>
+      <a class="btn" href="#booking">Choose Starter</a>
+    </article>
+    <article class="price-card featured">
+      <h3>Business</h3>
+      <div class="price">From $150</div>
+      <p>For businesses that need more room to explain their services.</p>
+      <ul>
+        <li>Up to five pages</li>
+        <li>Responsive design</li>
+        <li>Services and project sections</li>
+        <li>Contact and WhatsApp links</li>
+        <li>Two revision rounds</li>
+      </ul>
+      <a class="btn" href="#booking">Choose Business</a>
+    </article>
+    <article class="price-card">
+      <h3>Custom</h3>
+      <div class="price">From $300</div>
+      <p>For projects that need tailored features or additional development.</p>
+      <ul>
+        <li>Custom page and feature plan</li>
+        <li>Frontend development</li>
+        <li>Python backend features can be scoped</li>
+        <li>API or database work quoted separately</li>
+        <li>Project-specific delivery plan</li>
+      </ul>
+      <a class="btn" href="#booking">Request Custom Quote</a>
+    </article>
+  </div>
+</section>
+
+<section id="testimonials" class="about">
+  <div class="section-title">
+    <h2>Client Feedback</h2>
+    <p>Honest feedback matters to us.</p>
+  </div>
+  <div class="empty-testimonials">
+    <h3>Our testimonial collection is just getting started.</h3>
+    <p>We will publish genuine feedback here as clients complete projects with Austine Web Studio. We don't use made-up reviews.</p>
+  </div>
+</section>
+
+<section id="additional-services">
+  <div class="section-title">
+    <h2>More Ways We Can Help</h2>
+    <p>Design and development support for your next web project.</p>
+  </div>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h3>🧩 Frontend Development</h3>
+      <p>Responsive page layouts and interactive website features using HTML, CSS and JavaScript.</p>
+    </article>
+    <article class="feature-card">
+      <h3>🐍 Python Backend</h3>
+      <p>Python-based backend functionality can be discussed and scoped to fit your project requirements.</p>
+    </article>
+    <article class="feature-card">
+      <h3>🔌 Website Integrations</h3>
+      <p>Connect suitable website features and third-party services where the required access and setup are available.</p>
+    </article>
+    <article class="feature-card">
+      <h3>🛠️ Website Updates</h3>
+      <p>Content updates, layout improvements and fixes for existing websites.</p>
+    </article>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-title">
+    <h2>Frequently Asked Questions</h2>
+    <p>Helpful answers before we start your project.</p>
+  </div>
+  <div class="faq-list">
+    <details>
+      <summary>How do I get a quote?</summary>
+      <p>Tell us about your business, the type of website you need, the pages and features you have in mind, and your target deadline. We will discuss the scope and provide a quote.</p>
+    </details>
+    <details>
+      <summary>Will my website work on mobile phones?</summary>
+      <p>Yes. Responsive layouts are included in the packages so the website can adapt to mobile phones, tablets and desktop screens.</p>
+    </details>
+    <details>
+      <summary>Can you build a website with a Python backend?</summary>
+      <p>Python backend requirements can be discussed for custom projects. The exact features, hosting and database needs must be agreed before work begins.</p>
+    </details>
+    <details>
+      <summary>How long will my website take?</summary>
+      <p>Timing depends on the number of pages, features, content readiness and feedback. We will agree on a delivery schedule after reviewing your requirements.</p>
+    </details>
+    <details>
+      <summary>Are domain names and hosting included?</summary>
+      <p>They are not included in the listed starting prices unless specifically stated in your project quote. Any third-party charges will be explained before work begins.</p>
+    </details>
+    <details>
+      <summary>Can you create an online store?</summary>
+      <p>We can discuss a product catalogue and ordering experience. Shopping carts, payment processing and other advanced ecommerce features require a separate scope and quote.</p>
+    </details>
+  </div>
+</section>
+
+<section id="booking" class="contact">
+  <div class="section-title">
+    <h2>Book a Free Project Discussion</h2>
+    <p>Let's talk about your website idea.</p>
+  </div>
+  <div class="booking-panel">
+    <h3>Schedule your consultation</h3>
+    <p>Tap below to message us on WhatsApp. Tell us your preferred day and time, your time zone, and a little about your project. We'll confirm availability with you.</p>
+    <a class="btn" id="book-whatsapp" href="#contact">Request a Meeting</a>
+  </div>
+</section>
+
+<section id="analytics-info">
+  <div class="section-title">
+    <h2>Website Performance</h2>
+    <p>We use website analytics to understand visits and improve the experience.</p>
+  </div>
+  <p class="section-note">Visitor tracking is not active yet. The site owner must connect a Google Analytics 4 measurement ID and publish an appropriate privacy notice before analytics can collect data.</p>
 </section>
 
 <section class="contact" id="contact">
@@ -369,9 +613,8 @@ document.getElementById("whatsapp").href =
 
 <div id="chat-box">
   <div id="chat-header">
-    🤖 Austine AI Assistant
-    <span onclick="toggleChat()"
-      style="float:right;cursor:pointer;">✕</span>
+    <span>🤖 Austine AI Assistant</span>
+    <button id="chat-close" type="button" onclick="toggleChat()" aria-label="Close chat">✕</button>
   </div>
 
   <div id="chat-messages">
@@ -382,6 +625,11 @@ document.getElementById("whatsapp").href =
 
       What would you like to know?
     </div>
+  </div>
+  <div class="chat-quick-actions">
+    <button type="button" data-chat-prompt="What services do you offer?">Services</button>
+    <button type="button" data-chat-prompt="What are your prices?">Prices</button>
+    <button type="button" data-chat-prompt="I want to book a meeting">Book a meeting</button>
   </div>
 
   <form id="chat-form">
@@ -414,40 +662,40 @@ document.getElementById("whatsapp").href =
   function getBotReply(message) {
     const text = message.toLowerCase();
 
-    if (text.includes("hello") || text.includes("hi") ||
-        text.includes("good morning")) {
-      return "Hello! 👋 Welcome to Austine Web Studio. How can I help you?";
+    if (/\b(hello|hi|hey|good morning|good afternoon|good evening)\b/.test(text)) {
+      return "Hello! 👋 Welcome to Austine Web Studio. Are you looking for a new website, a redesign, or help with an existing project?";
     }
-
-    if (text.includes("service") || text.includes("offer")) {
-      return "We offer business websites, portfolio websites, restaurant websites, online stores and responsive web design.";
+    if (text.includes("price") || text.includes("cost") || text.includes("package") || text.includes("budget")) {
+      return "Our sample starting packages are $75 for a one-page Starter website, $150 for a Business website of up to five pages, and $300 for a Custom project. Final pricing depends on the scope. Visit the Pricing section or tell us what you need for a quote.";
     }
-
-    if (text.includes("price") || text.includes("cost")) {
-      return "Our website prices depend on the features you need. Tell us what type of website you want for a quote.";
+    if (text.includes("service") || text.includes("offer") || text.includes("what do you do")) {
+      return "We work on business websites, landing pages, portfolio sites, responsive design, frontend development, website updates and scoped Python backend features. What kind of project do you have in mind?";
     }
-
+    if (text.includes("python") || text.includes("backend") || text.includes("database") || text.includes("api")) {
+      return "Python backend, database and API requirements can be discussed as custom work. Tell us what the backend should do so we can review the scope.";
+    }
+    if (text.includes("meeting") || text.includes("book") || text.includes("consult")) {
+      return "You can request a project discussion using the 'Book a Free Project Discussion' section. Send your preferred day, time and time zone through WhatsApp, and we'll confirm availability.";
+    }
+    if (text.includes("time") || text.includes("long") || text.includes("delivery")) {
+      return "Delivery time depends on the number of pages, features and how quickly content and feedback are provided. We'll agree on a schedule after reviewing your project.";
+    }
     if (text.includes("restaurant")) {
-      return "We can build a restaurant website with a menu, food photos, contact information and WhatsApp ordering.";
+      return "We have a restaurant website demo you can view from the Projects section. A restaurant website can include a menu, contact details, location and WhatsApp ordering.";
     }
-
     if (text.includes("portfolio")) {
-      return "We can create a professional portfolio website to showcase your skills, projects and achievements.";
+      return "We can create a portfolio website to present your skills, projects and contact details in a professional way.";
     }
-
-    if (text.includes("online store") || text.includes("ecommerce")) {
-      return "We can design an online store to display your products and help customers place orders.";
+    if (text.includes("store") || text.includes("ecommerce") || text.includes("shop")) {
+      return "We can discuss an online store or product catalogue. Shopping carts and payment processing need a separate feature plan and quote.";
     }
-
-    if (text.includes("contact") || text.includes("whatsapp")) {
-      return "You can contact Austine Web Studio through the WhatsApp button on this website.";
+    if (text.includes("contact") || text.includes("whatsapp") || text.includes("email")) {
+      return "Use the WhatsApp contact button on this page to reach Austine Web Studio. Include your business name and what you want your website to do.";
     }
-
-    if (text.includes("website")) {
-      return "We build modern, mobile-friendly websites for businesses. What type of business do you have?";
+    if (text.includes("thank")) {
+      return "You're welcome! 😊 If you're ready, tell us what kind of website you need and we'll help with the next step.";
     }
-
-    return "Thanks for your message! 😊 Please tell me more, or use our WhatsApp button to speak with Austine Web Studio.";
+    return "Thanks for reaching out! To help us understand your project, tell us: 1) what your business does, 2) what type of website you need, and 3) any features you want. You can also request a meeting below.";
   }
 
   document.getElementById("chat-form").addEventListener(
@@ -467,6 +715,66 @@ document.getElementById("whatsapp").href =
       }, 400);
     }
   );
+</script>
+
+
+<script>
+  // Theme preference is saved on this device.
+  (function () {
+    const themeButton = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("austine-theme");
+    if (savedTheme === "light") document.body.classList.add("light-mode");
+    if (themeButton) {
+      themeButton.textContent = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
+      themeButton.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+        const isLight = document.body.classList.contains("light-mode");
+        localStorage.setItem("austine-theme", isLight ? "light" : "dark");
+        themeButton.textContent = isLight ? "🌙" : "☀️";
+      });
+    }
+  })();
+
+  // Meeting requests open WhatsApp with a prefilled message.
+  (function () {
+    const bookingButton = document.getElementById("book-whatsapp");
+    if (bookingButton) {
+      const bookingText = "Hello Austine Web Studio, I would like to request a project consultation. My preferred day/time and time zone are: ";
+      bookingButton.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(bookingText);
+      bookingButton.target = "_blank";
+      bookingButton.rel = "noopener";
+    }
+  })();
+
+  // Chat quick-action buttons send their prompt into the existing chat.
+  document.querySelectorAll("[data-chat-prompt]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const input = document.getElementById("chat-input");
+      const form = document.getElementById("chat-form");
+      input.value = button.getAttribute("data-chat-prompt");
+      form.requestSubmit();
+    });
+  });
+
+  /*
+    OPTIONAL GOOGLE ANALYTICS 4 SETUP:
+    1. Create a Google Analytics 4 property.
+    2. Replace the value below with your own Measurement ID (format: G-XXXXXXXXXX).
+    3. Publish an appropriate privacy notice before enabling tracking.
+    Tracking remains off while the placeholder is unchanged.
+  */
+  const GA4_MEASUREMENT_ID = "G-XXXXXXXXXX";
+  if (/^G-[A-Z0-9]+$/.test(GA4_MEASUREMENT_ID) && GA4_MEASUREMENT_ID !== "G-XXXXXXXXXX") {
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_MEASUREMENT_ID;
+    document.head.appendChild(gaScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", GA4_MEASUREMENT_ID);
+  }
 </script>
 
 </body>
