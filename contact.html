@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Austine Web Studio</title>
+<meta name="description" content="Contact Austine Web Studio about your next website project.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <a class="logo" href="index.html" style="color:inherit;text-decoration:none">AUSTINE <span>WEB STUDIO</span></a>
+ <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">☀️</button>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
+ <nav id="nav"><a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="pricing.html">Pricing</a>
+<a href="testimonials.html">Reviews</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="booking.html">Book a Meeting</a>
+<a href="contact.html" class="active">Contact</a></nav>
+</header>
+<div class="page-hero"><p class="tag">AUSTINE WEB STUDIO</p><h1>Contact</h1><p>Contact Austine Web Studio about your next website project.</p></div>
+<main class="page-content"><section class="contact" id="contact">
+<div class="section-title"><h2>Let's Build Your Website</h2></div>
+<p>Have a business? Let's help you take it online.</p>
+<a class="btn" href="#" id="whatsapp">Contact Us on WhatsApp</a>
+</section></main>
+<footer><p>© <span id="year"></span> Austine Web Studio. All rights reserved.</p><p>We Build. You Grow.</p></footer>
+
+<button id="chat-button" onclick="toggleChat()">💬 Chat with us</button>
+<div id="chat-box">
+  <div id="chat-header"><span>🤖 Austine AI Assistant</span>
+    <button id="chat-close" type="button" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div id="chat-messages"><div class="chat-message bot-message">Hello! 👋 Welcome to Austine Web Studio. I can help you learn about our website design services. What would you like to know?</div></div>
+  <div class="chat-quick-actions">
+    <button type="button" data-chat-prompt="What services do you offer?">Services</button>
+    <button type="button" data-chat-prompt="What are your prices?">Prices</button>
+    <button type="button" data-chat-prompt="I want to book a meeting">Book a meeting</button>
+  </div>
+  <form id="chat-form"><input id="chat-input" placeholder="Type your message..." autocomplete="off" required><button type="submit">Send</button></form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

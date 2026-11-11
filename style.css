@@ -1,0 +1,364 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, sans-serif;
+  background: #080e1a;
+  color: white;
+  line-height: 1.6;
+}
+header {
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #101a2b;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { font-size: 20px; font-weight: bold; }
+.logo span { color: #3b82f6; }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+nav a:hover { color: #60a5fa; }
+.hero {
+  min-height: 550px;
+  padding: 110px 8%;
+  background: linear-gradient(120deg,#101e38,#080e1a);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tag {
+  color: #60a5fa;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+h1 {
+  font-size: clamp(36px,7vw,65px);
+  line-height: 1.15;
+  margin: 20px 0;
+}
+h1 span { color: #3b82f6; }
+.hero p {
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  background: #2563eb;
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { background: #1d4ed8; }
+section { padding: 75px 8%; }
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-title h2 { font-size: 32px; }
+.section-title p { color: #94a3b8; }
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+.service, .project {
+  background: #111c30;
+  padding: 25px;
+  border: 1px solid #263750;
+  border-radius: 12px;
+}
+.service h3, .project h3 { margin-bottom: 12px; }
+.service p, .project p {
+  color: #aab8ca;
+  font-size: 14px;
+}
+.service .symbol {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+.about {
+  background: #101a2b;
+  text-align: center;
+}
+.about p {
+  max-width: 700px;
+  margin: auto;
+  color: #cbd5e1;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+.project { border-top: 3px solid #2563eb; }
+.contact {
+  text-align: center;
+  background: linear-gradient(120deg,#10264b,#080e1a);
+}
+.contact p {
+  color: #cbd5e1;
+  margin: 15px auto 25px;
+}
+footer {
+  padding: 25px;
+  text-align: center;
+  background: #050912;
+  color: #94a3b8;
+  font-size: 13px;
+}
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 25px;
+}
+@media(max-width:650px) {
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #101a2b;
+    padding: 20px;
+  }
+  nav.show { display: flex; flex-direction: column; }
+  nav a { margin: 10px 0; }
+}
+
+/* New Austine Web Studio sections and interactive features */
+.theme-toggle {
+  margin-left: auto;
+  margin-right: 14px;
+  border: 1px solid #365071;
+  border-radius: 999px;
+  background: #172943;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.pricing-grid, .feature-grid, .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.price-card, .feature-card, .testimonial-card {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 12px;
+  padding: 25px;
+}
+.price-card.featured { border: 2px solid #3b82f6; transform: translateY(-4px); }
+.price-card h3, .feature-card h3 { margin-bottom: 10px; }
+.price { font-size: 30px; font-weight: bold; color: #60a5fa; margin: 12px 0; }
+.price small { font-size: 13px; color: #aab8ca; font-weight: normal; }
+.price-card p, .price-card li, .feature-card p, .testimonial-card p {
+  color: #aab8ca;
+  font-size: 14px;
+}
+.price-card ul { padding-left: 20px; margin: 16px 0 22px; }
+.price-card li { margin: 7px 0; }
+.section-note { max-width: 760px; margin: 0 auto 25px; color: #aab8ca; text-align: center; font-size: 14px; }
+.empty-testimonials {
+  max-width: 700px;
+  margin: auto;
+  padding: 28px;
+  border: 1px dashed #49617f;
+  border-radius: 12px;
+  text-align: center;
+  color: #cbd5e1;
+  background: #111c30;
+}
+.faq-list { max-width: 850px; margin: auto; }
+.faq-list details {
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 10px;
+  padding: 17px 20px;
+  margin-bottom: 12px;
+}
+.faq-list summary { cursor: pointer; font-weight: bold; }
+.faq-list details p { color: #aab8ca; margin-top: 12px; }
+.booking-panel {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  background: #111c30;
+  border: 1px solid #263750;
+  border-radius: 14px;
+}
+.booking-panel p { color: #cbd5e1; margin: 12px 0 22px; }
+.chat-quick-actions { display: flex; flex-wrap: wrap; gap: 7px; padding: 8px 10px; background: #f3f6fa; }
+.chat-quick-actions button {
+  border: 1px solid #b7c8df;
+  background: white;
+  color: #17345a;
+  border-radius: 18px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#chat-header { display: flex; justify-content: space-between; align-items: center; }
+#chat-close { cursor: pointer; border: 0; background: transparent; color: white; font-size: 20px; }
+body.light-mode { background: #f5f7fb; color: #172033; }
+body.light-mode header, body.light-mode .about { background: #e7edf6; }
+body.light-mode nav a { color: #172033; }
+body.light-mode .hero { background: linear-gradient(120deg,#dceaff,#f5f7fb); }
+body.light-mode .hero p, body.light-mode .about p, body.light-mode .contact p { color: #34445c; }
+body.light-mode .service, body.light-mode .project, body.light-mode .price-card,
+body.light-mode .feature-card, body.light-mode .testimonial-card,
+body.light-mode .faq-list details, body.light-mode .booking-panel,
+body.light-mode .empty-testimonials { background: white; color: #172033; border-color: #cbd5e1; }
+body.light-mode .service p, body.light-mode .project p, body.light-mode .price-card p,
+body.light-mode .price-card li, body.light-mode .feature-card p,
+body.light-mode .testimonial-card p, body.light-mode .faq-list details p,
+body.light-mode .booking-panel p, body.light-mode .section-note { color: #526176; }
+body.light-mode footer { background: #e7edf6; color: #526176; }
+body.light-mode .contact { background: linear-gradient(120deg,#dceaff,#f5f7fb); }
+body.light-mode .theme-toggle { background: white; color: #172033; border-color: #cbd5e1; }
+@media(max-width:650px) {
+  header { flex-wrap: wrap; }
+  .theme-toggle { margin-left: auto; }
+  nav { z-index: 20; }
+  .price-card.featured { transform: none; }
+}
+
+
+
+  #chat-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #087bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 15px #0003;
+  }
+
+  #chat-box {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    height: 420px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #0004;
+    overflow: hidden;
+    z-index: 9999;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+  }
+
+  #chat-header {
+    background: #071b35;
+    color: white;
+    padding: 16px;
+    font-weight: bold;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f3f6fa;
+  }
+
+  .chat-message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 90%;
+    font-size: 14px;
+    white-space: pre-line;
+  }
+
+  .bot-message {
+    background: white;
+    color: #222;
+  }
+
+  .user-message {
+    background: #087bff;
+    color: white;
+    margin-left: auto;
+  }
+
+  #chat-form {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+    border-top: 1px solid #ddd;
+  }
+
+  #chat-input {
+    min-width: 0;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #chat-form button {
+    background: #087bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+
+nav { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+nav a { margin-left:0; padding:7px 9px; border-radius:6px; }
+nav a.active { background:#2563eb; color:white; }
+.page-hero { padding:70px 8%; text-align:center; background:linear-gradient(120deg,#101e38,#080e1a); }
+.page-hero h1 { margin:10px 0; }
+.page-hero p { color:#cbd5e1; max-width:680px; margin:auto; }
+.page-content { min-height:55vh; }
+@media(max-width:650px) {
+  nav { gap:0; }
+  nav a { padding:10px 0; }
+}
+
+#chat-button{position:fixed;right:20px;bottom:20px;background:#087bff;color:white;border:0;border-radius:50px;padding:15px 20px;font-weight:bold;cursor:pointer;z-index:9999;box-shadow:0 4px 15px #0003}
+#chat-box{display:none;position:fixed;right:20px;bottom:85px;width:320px;max-width:calc(100vw - 40px);height:420px;background:white;border-radius:15px;box-shadow:0 5px 25px #0004;overflow:hidden;z-index:9999;flex-direction:column;font-family:Arial,sans-serif}
+#chat-header{display:flex;justify-content:space-between;align-items:center;background:#071b35;color:white;padding:16px;font-weight:bold}
+#chat-close{cursor:pointer;border:0;background:transparent;color:white;font-size:20px}
+#chat-messages{flex:1;padding:12px;overflow-y:auto;background:#f3f6fa}
+.chat-message{padding:10px;border-radius:10px;margin-bottom:10px;max-width:90%;font-size:14px;white-space:pre-line}
+.bot-message{background:white;color:#222}.user-message{background:#087bff;color:white;margin-left:auto}
+#chat-form{display:flex;padding:10px;gap:5px;border-top:1px solid #ddd}
+#chat-input{min-width:0;flex:1;padding:10px;border:1px solid #ccc;border-radius:8px}
+#chat-form button{background:#087bff;color:white;border:0;padding:10px;border-radius:8px}
+.chat-quick-actions{display:flex;flex-wrap:wrap;gap:7px;padding:8px 10px;background:#f3f6fa}
+.chat-quick-actions button{border:1px solid #b7c8df;background:white;color:#17345a;border-radius:18px;padding:7px 10px;font-size:12px;cursor:pointer}

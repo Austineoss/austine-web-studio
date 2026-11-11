@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Meeting | Austine Web Studio</title>
+<meta name="description" content="Request a free project discussion with Austine Web Studio.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <a class="logo" href="index.html" style="color:inherit;text-decoration:none">AUSTINE <span>WEB STUDIO</span></a>
+ <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">☀️</button>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
+ <nav id="nav"><a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="pricing.html">Pricing</a>
+<a href="testimonials.html">Reviews</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="booking.html" class="active">Book a Meeting</a>
+<a href="contact.html">Contact</a></nav>
+</header>
+<div class="page-hero"><p class="tag">AUSTINE WEB STUDIO</p><h1>Book a Meeting</h1><p>Request a free project discussion with Austine Web Studio.</p></div>
+<main class="page-content"><section class="contact" id="booking">
+<div class="section-title">
+<h2>Book a Free Project Discussion</h2>
+<p>Let's talk about your website idea.</p>
+</div>
+<div class="booking-panel">
+<h3>Schedule your consultation</h3>
+<p>Tap below to message us on WhatsApp. Tell us your preferred day and time, your time zone, and a little about your project. We'll confirm availability with you.</p>
+<a class="btn" href="#contact" id="book-whatsapp">Request a Meeting</a>
+</div>
+</section></main>
+<footer><p>© <span id="year"></span> Austine Web Studio. All rights reserved.</p><p>We Build. You Grow.</p></footer>
+
+<button id="chat-button" onclick="toggleChat()">💬 Chat with us</button>
+<div id="chat-box">
+  <div id="chat-header"><span>🤖 Austine AI Assistant</span>
+    <button id="chat-close" type="button" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div id="chat-messages"><div class="chat-message bot-message">Hello! 👋 Welcome to Austine Web Studio. I can help you learn about our website design services. What would you like to know?</div></div>
+  <div class="chat-quick-actions">
+    <button type="button" data-chat-prompt="What services do you offer?">Services</button>
+    <button type="button" data-chat-prompt="What are your prices?">Prices</button>
+    <button type="button" data-chat-prompt="I want to book a meeting">Book a meeting</button>
+  </div>
+  <form id="chat-form"><input id="chat-input" placeholder="Type your message..." autocomplete="off" required><button type="submit">Send</button></form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Austine Web Studio</title>
+<meta name="description" content="Explore starting website packages and request a quote for your project.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <a class="logo" href="index.html" style="color:inherit;text-decoration:none">AUSTINE <span>WEB STUDIO</span></a>
+ <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">☀️</button>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
+ <nav id="nav"><a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="pricing.html" class="active">Pricing</a>
+<a href="testimonials.html">Reviews</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="booking.html">Book a Meeting</a>
+<a href="contact.html">Contact</a></nav>
+</header>
+<div class="page-hero"><p class="tag">AUSTINE WEB STUDIO</p><h1>Pricing</h1><p>Explore starting website packages and request a quote for your project.</p></div>
+<main class="page-content"><section id="pricing">
+<div class="section-title">
+<h2>Website Packages</h2>
+<p>Clear starting prices for common website projects.</p>
+</div>
+<p class="section-note">Prices are starting estimates in USD. Your final quote will depend on the pages, content, features and integrations your project needs. Hosting, domain names and third-party fees are not included unless agreed.</p>
+<div class="pricing-grid">
+<article class="price-card">
+<h3>Starter</h3>
+<div class="price">From $75</div>
+<p>For individuals and small businesses that need a simple online presence.</p>
+<ul>
+<li>One-page website</li>
+<li>Mobile-friendly layout</li>
+<li>Contact and WhatsApp links</li>
+<li>Basic page title and description</li>
+<li>One revision round</li>
+</ul>
+<a class="btn" href="booking.html">Choose Starter</a>
+</article>
+<article class="price-card featured">
+<h3>Business</h3>
+<div class="price">From $150</div>
+<p>For businesses that need more room to explain their services.</p>
+<ul>
+<li>Up to five pages</li>
+<li>Responsive design</li>
+<li>Services and project sections</li>
+<li>Contact and WhatsApp links</li>
+<li>Two revision rounds</li>
+</ul>
+<a class="btn" href="booking.html">Choose Business</a>
+</article>
+<article class="price-card">
+<h3>Custom</h3>
+<div class="price">From $300</div>
+<p>For projects that need tailored features or additional development.</p>
+<ul>
+<li>Custom page and feature plan</li>
+<li>Frontend development</li>
+<li>Python backend features can be scoped</li>
+<li>API or database work quoted separately</li>
+<li>Project-specific delivery plan</li>
+</ul>
+<a class="btn" href="booking.html">Request Custom Quote</a>
+</article>
+</div>
+</section></main>
+<footer><p>© <span id="year"></span> Austine Web Studio. All rights reserved.</p><p>We Build. You Grow.</p></footer>
+
+<button id="chat-button" onclick="toggleChat()">💬 Chat with us</button>
+<div id="chat-box">
+  <div id="chat-header"><span>🤖 Austine AI Assistant</span>
+    <button id="chat-close" type="button" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div id="chat-messages"><div class="chat-message bot-message">Hello! 👋 Welcome to Austine Web Studio. I can help you learn about our website design services. What would you like to know?</div></div>
+  <div class="chat-quick-actions">
+    <button type="button" data-chat-prompt="What services do you offer?">Services</button>
+    <button type="button" data-chat-prompt="What are your prices?">Prices</button>
+    <button type="button" data-chat-prompt="I want to book a meeting">Book a meeting</button>
+  </div>
+  <form id="chat-form"><input id="chat-input" placeholder="Type your message..." autocomplete="off" required><button type="submit">Send</button></form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

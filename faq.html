@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Austine Web Studio</title>
+<meta name="description" content="Find answers to common questions about website projects.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <a class="logo" href="index.html" style="color:inherit;text-decoration:none">AUSTINE <span>WEB STUDIO</span></a>
+ <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">☀️</button>
+ <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation menu">☰</button>
+ <nav id="nav"><a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="pricing.html">Pricing</a>
+<a href="testimonials.html">Reviews</a>
+<a href="about.html">About</a>
+<a href="faq.html" class="active">FAQ</a>
+<a href="booking.html">Book a Meeting</a>
+<a href="contact.html">Contact</a></nav>
+</header>
+<div class="page-hero"><p class="tag">AUSTINE WEB STUDIO</p><h1>FAQ</h1><p>Find answers to common questions about website projects.</p></div>
+<main class="page-content"><section id="faq">
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+<p>Helpful answers before we start your project.</p>
+</div>
+<div class="faq-list">
+<details>
+<summary>How do I get a quote?</summary>
+<p>Tell us about your business, the type of website you need, the pages and features you have in mind, and your target deadline. We will discuss the scope and provide a quote.</p>
+</details>
+<details>
+<summary>Will my website work on mobile phones?</summary>
+<p>Yes. Responsive layouts are included in the packages so the website can adapt to mobile phones, tablets and desktop screens.</p>
+</details>
+<details>
+<summary>Can you build a website with a Python backend?</summary>
+<p>Python backend requirements can be discussed for custom projects. The exact features, hosting and database needs must be agreed before work begins.</p>
+</details>
+<details>
+<summary>How long will my website take?</summary>
+<p>Timing depends on the number of pages, features, content readiness and feedback. We will agree on a delivery schedule after reviewing your requirements.</p>
+</details>
+<details>
+<summary>Are domain names and hosting included?</summary>
+<p>They are not included in the listed starting prices unless specifically stated in your project quote. Any third-party charges will be explained before work begins.</p>
+</details>
+<details>
+<summary>Can you create an online store?</summary>
+<p>We can discuss a product catalogue and ordering experience. Shopping carts, payment processing and other advanced ecommerce features require a separate scope and quote.</p>
+</details>
+</div>
+</section></main>
+<footer><p>© <span id="year"></span> Austine Web Studio. All rights reserved.</p><p>We Build. You Grow.</p></footer>
+
+<button id="chat-button" onclick="toggleChat()">💬 Chat with us</button>
+<div id="chat-box">
+  <div id="chat-header"><span>🤖 Austine AI Assistant</span>
+    <button id="chat-close" type="button" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div id="chat-messages"><div class="chat-message bot-message">Hello! 👋 Welcome to Austine Web Studio. I can help you learn about our website design services. What would you like to know?</div></div>
+  <div class="chat-quick-actions">
+    <button type="button" data-chat-prompt="What services do you offer?">Services</button>
+    <button type="button" data-chat-prompt="What are your prices?">Prices</button>
+    <button type="button" data-chat-prompt="I want to book a meeting">Book a meeting</button>
+  </div>
+  <form id="chat-form"><input id="chat-input" placeholder="Type your message..." autocomplete="off" required><button type="submit">Send</button></form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
