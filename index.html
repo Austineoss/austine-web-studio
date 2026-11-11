@@ -272,6 +272,203 @@ document.getElementById("whatsapp").href =
   encodeURIComponent(message);
 </script>
 
+<style>
+  #chat-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #087bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 15px #0003;
+  }
+
+  #chat-box {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    height: 420px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #0004;
+    overflow: hidden;
+    z-index: 9999;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+  }
+
+  #chat-header {
+    background: #071b35;
+    color: white;
+    padding: 16px;
+    font-weight: bold;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f3f6fa;
+  }
+
+  .chat-message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 90%;
+    font-size: 14px;
+    white-space: pre-line;
+  }
+
+  .bot-message {
+    background: white;
+    color: #222;
+  }
+
+  .user-message {
+    background: #087bff;
+    color: white;
+    margin-left: auto;
+  }
+
+  #chat-form {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+    border-top: 1px solid #ddd;
+  }
+
+  #chat-input {
+    min-width: 0;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #chat-form button {
+    background: #087bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+  }
+</style>
+
+<button id="chat-button" onclick="toggleChat()">
+  💬 Chat with us
+</button>
+
+<div id="chat-box">
+  <div id="chat-header">
+    🤖 Austine AI Assistant
+    <span onclick="toggleChat()"
+      style="float:right;cursor:pointer;">✕</span>
+  </div>
+
+  <div id="chat-messages">
+    <div class="chat-message bot-message">
+      Hello! 👋 Welcome to Austine Web Studio.
+
+      I can help you learn about our website design services.
+
+      What would you like to know?
+    </div>
+  </div>
+
+  <form id="chat-form">
+    <input id="chat-input"
+      placeholder="Type your message..."
+      autocomplete="off" required>
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById("chat-box");
+
+    box.style.display =
+      box.style.display === "flex" ? "none" : "flex";
+  }
+
+  function addMessage(message, sender) {
+    const messages = document.getElementById("chat-messages");
+    const div = document.createElement("div");
+
+    div.className = "chat-message " + sender;
+    div.textContent = message;
+
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function getBotReply(message) {
+    const text = message.toLowerCase();
+
+    if (text.includes("hello") || text.includes("hi") ||
+        text.includes("good morning")) {
+      return "Hello! 👋 Welcome to Austine Web Studio. How can I help you?";
+    }
+
+    if (text.includes("service") || text.includes("offer")) {
+      return "We offer business websites, portfolio websites, restaurant websites, online stores and responsive web design.";
+    }
+
+    if (text.includes("price") || text.includes("cost")) {
+      return "Our website prices depend on the features you need. Tell us what type of website you want for a quote.";
+    }
+
+    if (text.includes("restaurant")) {
+      return "We can build a restaurant website with a menu, food photos, contact information and WhatsApp ordering.";
+    }
+
+    if (text.includes("portfolio")) {
+      return "We can create a professional portfolio website to showcase your skills, projects and achievements.";
+    }
+
+    if (text.includes("online store") || text.includes("ecommerce")) {
+      return "We can design an online store to display your products and help customers place orders.";
+    }
+
+    if (text.includes("contact") || text.includes("whatsapp")) {
+      return "You can contact Austine Web Studio through the WhatsApp button on this website.";
+    }
+
+    if (text.includes("website")) {
+      return "We build modern, mobile-friendly websites for businesses. What type of business do you have?";
+    }
+
+    return "Thanks for your message! 😊 Please tell me more, or use our WhatsApp button to speak with Austine Web Studio.";
+  }
+
+  document.getElementById("chat-form").addEventListener(
+    "submit", function(event) {
+      event.preventDefault();
+
+      const input = document.getElementById("chat-input");
+      const message = input.value.trim();
+
+      if (!message) return;
+
+      addMessage(message, "user-message");
+      input.value = "";
+
+      setTimeout(function() {
+        addMessage(getBotReply(message), "bot-message");
+      }, 400);
+    }
+  );
+</script>
+
 </body>
 </html>
 
